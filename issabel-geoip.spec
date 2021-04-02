@@ -8,7 +8,7 @@ Group:          System Environment/Base
 License:        GPLv2
 Url: http://www.issabel.org
 
-Source0: %{modname}_%{version}.tgz
+Source0: %{modname}_%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 
 Source1: geoip_update.sh

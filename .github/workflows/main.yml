@@ -22,7 +22,7 @@ jobs:
       id: rpm
       uses: naveenrajm7/rpmbuild@master
       with:
-        spec_file: "issabel-geoip-1.6.12/build/4.0/issabel-geoip.spec"
+        spec_file: "issabel-geoip.spec"
 
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0

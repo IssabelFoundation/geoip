@@ -48,11 +48,14 @@ Development headers and static libraries for building GeoIP-based applications.
 %prep
 
 %setup -q -c %{modname}_%{version}
-cd issabel-%{modname}_%{version}/geoip-api-c-main
+echo "prep"
+ls -la 
+cd geoip-api-c-main
 cp %{SOURCE2} .
 %patch0 -p0
 
 %build
+echo "build"
 cd issabel-%{modname}_%{version}/geoip-api-c-main
 ./bootstrap
 %configure --disable-static --disable-dependency-tracking

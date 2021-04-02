@@ -4,8 +4,8 @@ Version: 1.6.12
 Release: 2
 Summary: GeoIP
 
-Group:          System Environment/Base
-License:        GPLv2
+Group: System Environment/Base
+License: GPLv2
 Url: http://www.issabel.org
 
 Source0: issabel-%{modname}-%{version}.tar.gz
@@ -47,13 +47,13 @@ Development headers and static libraries for building GeoIP-based applications.
 
 %prep
 
-%setup -q -c %{modname}_%{version}-%{release}
-cd issabel-%{modname}_%{version}-%{release}/geoip-api-c-main
+%setup -q -c %{modname}_%{version}
+cd issabel-%{modname}_%{version}/geoip-api-c-main
 cp %{SOURCE2} .
 %patch0 -p0
 
 %build
-cd issabel-%{modname}_%{version}-%{release}/geoip-api-c-main
+cd issabel-%{modname}_%{version}/geoip-api-c-main
 ./bootstrap
 %configure --disable-static --disable-dependency-tracking
 

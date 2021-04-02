@@ -50,7 +50,7 @@ Development headers and static libraries for building GeoIP-based applications.
 %setup -q -c %{modname}_%{version}
 echo "prep"
 ls -la 
-cd geoip-api-c-main
+cd issabel-%{modname}-%{version}/geoip-api-c-main
 cp %{SOURCE2} .
 %patch0 -p0
 

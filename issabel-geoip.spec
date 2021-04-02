@@ -78,8 +78,8 @@ mkdir -p    $RPM_BUILD_ROOT/usr/share/geoip/
 mkdir -p    $RPM_BUILD_ROOT/usr/bin
 ls -la
 find . -name geoip-csv-to-dat
-install -Dpm 755 issabel-%{modname}_%{version}-%{release}/geoip-api-c-main/geoip-csv-to-dat $RPM_BUILD_ROOT/usr/bin
-cd issabel-%{modname}_%{version}-%{release}/geoip-api-c-main
+install -Dpm 755 issabel-%{modname}-%{version}/geoip-api-c-main/geoip-csv-to-dat $RPM_BUILD_ROOT/usr/bin
+cd issabel-%{modname}-%{version}/geoip-api-c-main
 #rm -rf $RPM_BUILD_ROOT
 make DESTDIR=%{buildroot} install
 

@@ -18,16 +18,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: copy sources
-      id: copysource
-      run:  |
-         /usr/bin/mkdir -p /github/home/rpmbuild/SOURCES
-         /usr/bin/cp /github/workspace/build/4.0/patches/* /github/home/rpmbuild/SOURCES
-         /usr/bin/cp /github/workspace/build/4.0/files/* /github/home/rpmbuild/SOURCES
-
     - name: build RPM package
       id: rpm
-      uses: naveenrajm7/rpmbuild@master
+      uses: asternic/rpmbuild@master
       with:
         spec_file: "issabel-geoip.spec"
 

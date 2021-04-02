@@ -1,0 +1,43 @@
+#!/usr/bin/perl
+use NetAddr::IP;
+
+unless(-s "$ARGV[0]"){
+    print STDERR "Specify Country DB to use on the command line.\n";
+    exit 1;
+}
+
+# Prime country data with additional continent codes
+# http://download.geonames.org/export/dump/readme.txt
+my $countryinfo;
+
+# Read the countryinfo file
+open my $fh_in, "<", "$ARGV[0]" or die "Can't open $ARGV[0]: $!\n";
+foreach my $line (<$fh_in>){
+    chomp $line;
+    next if ($line =~ /^#/);
+    my @fields = (split "\t", $line);
+    my $code = $fields[0];
+    my $name = $fields[4];
+    $countryinfo->{$code}->{'name'} = $name;
+}
+close $fh_in;
+
+foreach my $line (<STDIN>){
+    next unless ($line =~ /^\d/);
+    chomp $line;
+    $counter++;
+    my @fields = (split ",", $line);
+    my $start_ip = $fields[0];
+    my $end_ip = $fields[1];
+    my $country_code = $fields[2];
+    my $ip = NetAddr::IP->new($start_ip);
+    my $ipend = NetAddr::IP->new($end_ip);
+    my $start_int = $ip->bigint();
+    my $end_int = $ipend->bigint();
+
+    if($country_code eq "ZZ") { next; }
+
+    $name = $countryinfo->{$country_code}->{'name'};
+
+    print "\"$start_ip\",\"$end_ip\",\"$start_int\",\"$end_int\",\"$country_code\",\"$name\"\n"
+}

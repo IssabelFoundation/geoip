@@ -376,4 +376,5 @@ fromGeolite2
 
 alias cp=cp
 cp -rf {BE,LE} /usr/share/xt_geoip
+find BE -type f -exec cp {} /usr/share/xt_geoip \;
 alias cp='cp -i'

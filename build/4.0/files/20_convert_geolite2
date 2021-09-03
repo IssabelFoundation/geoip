@@ -57,6 +57,7 @@ foreach my $line (<STDIN>){
 	my $geoname_id = $fields[1];
 	my $registered_country_geoname_id = $fields[2];
 	my $represented_country_geoname_id = $fields[3];
+    if ($represented_country_geoname_id eq "") { $represented_country_geoname_id=$registered_country_geoname_id; }
 	my $is_anonymous_proxy = $fields[4];
 	my $is_satellite_provider = $fields[5];
 	my $ip = NetAddr::IP->new($network);

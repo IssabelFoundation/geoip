@@ -100,7 +100,7 @@ ln -sf GeoIPv6-initial.dat %{buildroot}%{_datadir}/GeoIP/GeoIPv6.dat
 
 %post
 echo UPDATING GEOIP DATABASE...
-/etc/cron.daily/geoip_update.sh &> /dev/null
+/etc/cron.daily/geoip_update.sh &> /dev/null || :
 
 
 %clean

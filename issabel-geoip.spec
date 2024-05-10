@@ -1,7 +1,7 @@
 %define modname geoip
 Name: issabel-geoip
 Version: 1.6.12
-Release: 3
+Release: 4
 Summary: GeoIP
 
 Group: System Environment/Base

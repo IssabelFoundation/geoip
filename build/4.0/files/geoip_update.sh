@@ -219,7 +219,7 @@ function fromGeolite2 {
         fi
 
         COUNTRYURL='http://download.geonames.org/export/dump/countryInfo.txt'
-        if ! curl -s $COUNTRYURL > /tmp/CountryInfo.txt
+        if ! curl -s -L $COUNTRYURL > /tmp/CountryInfo.txt
         then
             MSG='GeoIP problem. Could not download country Info'
             echo "$MSG" >>/var/log/geoip_update.log
@@ -281,7 +281,7 @@ function fromGeolite2 {
         TEMPZIP=$(mktemp)
         #LICENSE_KEY=
         GEOLITEURL="https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country-CSV&license_key=$LICENSE_KEY&suffix=zip"
-        if ! curl -s $GEOLITEURL > $TEMPZIP
+        if ! curl -s -L $GEOLITEURL > $TEMPZIP
         then
             MSG='GeoIP problem. Unable to download database.'
             echo "$MSG" >>/var/log/geoip_update.log
@@ -319,7 +319,7 @@ function fromGeolite2 {
         rm $TEMPZIP
 
         COUNTRYURL='http://download.geonames.org/export/dump/countryInfo.txt'
-        if ! curl -s $COUNTRYURL > /tmp/CountryInfo.txt
+        if ! curl -s -L $COUNTRYURL > /tmp/CountryInfo.txt
         then
             MSG='GeoIP problem. Could not download country Info'
             echo "$MSG" >>/var/log/geoip_update.log
